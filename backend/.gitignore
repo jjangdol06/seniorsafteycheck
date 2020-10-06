@@ -123,4 +123,8 @@ dist
 # ignore env
 .env
 
+# ignore .mwb, .png
+seniorsafety.mwb
+seniorsafety.png
+
 # End of https://www.toptal.com/developers/gitignore/api/node,vscode
