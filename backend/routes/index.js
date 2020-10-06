@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const uuidv4 = require('uuid/v4')
-const auth = require('./api/auth/index')
+// const uuidv4 = require('uuid/v4')
+const createdata = require('./api/create-data/index')
 
-router.use('/auth', auth)
+router.use('/create-data', createdata)
 
 module.exports = router
