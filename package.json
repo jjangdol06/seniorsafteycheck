@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jjangdol06/seniorsafteycheck/issues"
   },
-  "homepage": "https://github.com/jjangdol06/seniorsafteycheck#readme"
+  "homepage": "https://github.com/jjangdol06/seniorsafteycheck#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
