@@ -8,7 +8,7 @@ const flash = require('connect-flash')
 require('dotenv').config()
 
 const { sequelize } = require('./models')
-// const passportConfig = require('./passp
+
 
 // Router
 const indexRouter = require('./routes/index')
