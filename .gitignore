@@ -10,5 +10,3 @@ backend/.env
 # ignore .mwb, .png
 backend/seniorsafety.mwb
 backend/seniorsafety.png
-
-# End of https://www.toptal.com/developers/gitignore/api/node,vscode
