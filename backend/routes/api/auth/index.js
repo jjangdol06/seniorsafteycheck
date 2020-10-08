@@ -8,8 +8,8 @@ router.get('/', function(req, res) {
     res.send('Home Page');
 });
 
-router.post('/signup', isNotLoggedIn, controller.signup);
-router.post('/login', isNotLoggedIn, controller.login);
-router.get('/logout', isLoggedIn, controller.logout);
+router.post('/signup', isNotLoggedIn, controller.signup); // 회원가입
+router.post('/login', isNotLoggedIn, controller.login); // 로그인
+router.get('/logout', isLoggedIn, controller.logout); // 로그아웃
 
 module.exports = router
