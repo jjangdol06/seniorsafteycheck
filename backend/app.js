@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
-// const passport = require('passport')
+const passport = require('passport')
 const morgan = require('morgan')
 const session = require('express-session')
 const flash = require('connect-flash')
@@ -12,6 +12,7 @@ const { sequelize } = require('./models')
 
 // Router
 const indexRouter = require('./routes/index')
+const passportConfig = require('./passport');
 
 const app = express()
 
@@ -27,7 +28,7 @@ sequelize.sync({
         process.exit();
     });
 
-// passportConfig(passport)
+passportConfig();
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
@@ -49,8 +50,8 @@ app.use(session({
     },
 }))
 app.use(flash())
-// app.use(passport.initialize())
-// app.use(passport.session())
+app.use(passport.initialize())
+app.use(passport.session())
 
 
 // APi
@@ -59,7 +60,7 @@ app.use('/', indexRouter)
 // 404 error
 app.use((req, res, next) => {
     const err = new Error('Not Found')
-    err.status = 4-4;
+    err.status = 404;
     next(err)
 })
 
