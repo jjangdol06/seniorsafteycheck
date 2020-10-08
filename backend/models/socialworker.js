@@ -48,6 +48,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(200),
       allowNull: false,
       defaultValue: "정적파일 경로 추가"
+    },
+    name: {
+      type: DataTypes.STRING(10),
+      allowNull: false,
     }
   }, {
     sequelize,

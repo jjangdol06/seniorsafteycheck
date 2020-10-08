@@ -20,6 +20,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(15),
       allowNull: false
     },
+    name: {
+      type: DataTypes.STRING(10),
+      allowNull: false
+    },
     senior_idsenior: {
       type: DataTypes.INTEGER(11),
       allowNull: false,

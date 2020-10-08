@@ -127,7 +127,7 @@ exports.getdisease = async (req, res) => {
 }
 
 exports.socialworker = async (req, res) => {
-    const { address, province, district, phone, id, password, adminoffice } = req.body
+    const { address, province, district, phone, id, password, adminoffice, name } = req.body
     try {
         const ex = await Socialworker.findOne({ where: { id } })
         if (ex) {
@@ -141,6 +141,7 @@ exports.socialworker = async (req, res) => {
             id: id,
             password: password,
             adminoffice_idadminoffice: adminoffice,
+            name: name,
         })
         res.json({ message: "socialworker created" })
     } catch (error) {
@@ -164,7 +165,7 @@ exports.getsocialworker = async (req, res) => {
 }
 
 exports.senior = async (req, res) => {
-    const { address, province, district, phone } = req.body
+    const { address, province, district, phone, name } = req.body
     try {
         const ex = await Senior.findOne({ where: { phone } })
         if (ex) {
@@ -175,6 +176,7 @@ exports.senior = async (req, res) => {
             province: province,
             district: district,
             phone: phone,
+            name: name,
         })
         res.json({ message: "senior created" })
     } catch (error) {
@@ -199,7 +201,7 @@ exports.getsenior = async (req, res) => {
 
 
 exports.family = async (req, res) => {
-    const { address, relation, phone, idsenior } = req.body
+    const { address, relation, phone, idsenior, name } = req.body
     try {
         const ex = await Family.findOne({ where: { phone } })
         if (ex) {
@@ -210,6 +212,7 @@ exports.family = async (req, res) => {
             relation: relation,
             phone: phone,
             senior_idsenior: idsenior,
+            name: name,
         })
         res.json({ message: "family created" })
     } catch (error) {

@@ -23,6 +23,10 @@ module.exports = function(sequelize, DataTypes) {
     district: {
       type: DataTypes.INTEGER(11),
       allowNull: false
+    },
+    name: {
+      type: DataTypes.STRING(10),
+      allowNull: false
     }
   }, {
     sequelize,
