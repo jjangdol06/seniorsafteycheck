@@ -42,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
         unique: "fk_call_socialworker1"
       },
       completed: {
-        type: DataTypes.INTEGER(11),
+        type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: 0
       },
