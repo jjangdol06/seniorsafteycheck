@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: true
       },
       completed: {
-        type: DataTypes.INTEGER(11),
+        type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: 0
       },
