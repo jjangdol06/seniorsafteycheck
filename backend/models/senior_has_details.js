@@ -27,6 +27,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     sequelize,
-    tableName: 'senior_has_disease'
+    tableName: 'senior_has_details'
   });
 };
