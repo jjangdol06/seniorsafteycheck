@@ -27,6 +27,10 @@ module.exports = function(sequelize, DataTypes) {
       name: {
         type: DataTypes.STRING(10),
         allowNull: false
+      },
+      gender: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
       }
     }, {
       sequelize,

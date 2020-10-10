@@ -2,13 +2,13 @@
 
 module.exports = function(sequelize, DataTypes) {
     return sequelize.define('disease', {
-      iddisease: {
+      iddetail: {
         type: DataTypes.INTEGER(11),
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
       },
-      diseasename: {
+      detailname: {
         type: DataTypes.STRING(10),
         allowNull: false,
         unique: "diseasecode_UNIQUE"

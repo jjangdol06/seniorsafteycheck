@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
     return sequelize.define('call', {
-      idcall: {
+      idsafetycheck: {
         type: DataTypes.INTEGER(11),
         autoIncrement: true,
         allowNull: false,
@@ -44,6 +44,11 @@ module.exports = function(sequelize, DataTypes) {
       completed: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
+        defaultValue: 0
+      },
+      description: {
+        type: DataTypes.STRING(500),
+        allowNull: true,
         defaultValue: 0
       },
       state_idstate: {
