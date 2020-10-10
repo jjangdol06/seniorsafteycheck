@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('disease', {
+    return sequelize.define('', {
       iddetail: {
         type: DataTypes.INTEGER(11),
         autoIncrement: true,

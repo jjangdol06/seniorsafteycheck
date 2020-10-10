@@ -19,6 +19,5 @@ db.Senior = require('./senior')(sequelize, Sequelize);
 db.Service = require('./service')(sequelize, Sequelize);
 db.Socialworker = require('./socialworker')(sequelize, Sequelize);
 db.State = require('./state')(sequelize, Sequelize);
-db.Visit = require('./visit')(sequelize, Sequelize);
 
 module.exports = db;
