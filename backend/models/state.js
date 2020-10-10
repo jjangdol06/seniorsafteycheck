@@ -9,12 +9,13 @@ module.exports = function(sequelize, DataTypes) {
         primaryKey: true
       },
       state: {
-        type: DataTypes.STRING(10),
+        type: DataTypes.INTEGER(10),
         allowNull: false,
         unique: "state_UNIQUE"
       }
     }, {
       sequelize,
+      timestamps: false,
       tableName: 'state'
     });
   };

@@ -1,21 +1,25 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('service', {
-      idservice: {
+    return sequelize.define('detail', {
+      iddetail: {
         type: DataTypes.INTEGER(11),
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
       },
-      servicetype: {
+      detailname: {
         type: DataTypes.STRING(10),
         allowNull: false,
-        defaultValue: 0
+        unique: "detailname_UNIQUE"
+      },
+      risk: {
+        type: DataTypes.INTEGER(11),
+        allowNull: false
       }
     }, {
       sequelize,
       timestamps: false,
-      tableName: 'service'
+      tableName: 'detail'
     });
   };
