@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }, {
       sequelize,
+      timestamps: false,
       tableName: 'adminoffice'
     });
   };

@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('senior_has_details', {
+  return sequelize.define('senior_has_detail', {
     senior_idsenior: {
       type: DataTypes.INTEGER(11),
       autoIncrement: true,
@@ -20,13 +20,14 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       references: {
         model: {
-          tableName: 'disease',
+          tableName: 'detail',
         },
-        key: 'iddisease'
+        key: 'iddetail'
       }
     }
   }, {
     sequelize,
-    tableName: 'senior_has_disease'
+    timestamps: false,
+    tableName: 'senior_has_detail'
   });
 };

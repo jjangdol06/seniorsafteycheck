@@ -11,14 +11,13 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.Adminoffice = require('./adminoffice')(sequelize, Sequelize);
-db.Call = require('./safetycheck')(sequelize, Sequelize);
-db.Disease = require('./details')(sequelize, Sequelize);
+db.Detail = require('./detail')(sequelize, Sequelize);
 db.Family = require('./family')(sequelize, Sequelize);
-db.Senior_has_disease = require('./senior_has_details')(sequelize, Sequelize);
+db.Safetycheck = require('./safetycheck')(sequelize, Sequelize);
+db.Senior_has_detail = require('./senior_has_detail')(sequelize, Sequelize);
 db.Senior = require('./senior')(sequelize, Sequelize);
 db.Service = require('./service')(sequelize, Sequelize);
 db.Socialworker = require('./socialworker')(sequelize, Sequelize);
 db.State = require('./state')(sequelize, Sequelize);
-db.Visit = require('./visit')(sequelize, Sequelize);
 
 module.exports = db;
