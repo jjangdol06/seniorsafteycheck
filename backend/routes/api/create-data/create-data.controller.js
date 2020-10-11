@@ -170,7 +170,7 @@ exports.getsenior_has_detail = async (req, res) => {
 }
 
 exports.senior = async (req, res) => {
-    const { address, province, district, phone, name, gender } = req.body
+    const { address, province, district, phone, name, gender, socialworker_idsocialworker } = req.body
     try {
         const ex = await Senior.findOne({ where: { phone } })
         if (ex) {
@@ -183,6 +183,7 @@ exports.senior = async (req, res) => {
             phone: phone,
             name: name,
             gender: gender,
+            socialworker_idsocialworker: socialworker_idsocialworker,
         })
         res.json({ message: "senior created" })
     } catch (error) {

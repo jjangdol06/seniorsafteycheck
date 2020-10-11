@@ -1,6 +1,6 @@
 const { Socialworker } = require('../../../models');
 
-exports.mypage = async (req, res, next) => {
+exports.getmypage = async (req, res, next) => {
     try {
         const exSocialworker = await Socialworker.findOne({ where: { id: req.user.id } });
         res.send({ socialworker: exSocialworker }); // 로그인 한 socialworker의 정보 전달

@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const { Socialworker } = require('../../../models');
 
 exports.signup = async (req, res, next) => {
-    const { address, phone, province, district, id, password, adminoffice_idadminoffice, name } = req.body;
+    const { address, phone, province, district, id, password, adminoffice_idadminoffice, name, profileimg } = req.body;
     try {
         const exSocialworker = await Socialworker.findOne({ where: { id } });
         if (exSocialworker) {
@@ -19,6 +19,7 @@ exports.signup = async (req, res, next) => {
             password: hash, 
             adminoffice_idadminoffice,
             name,
+            profileimg
         });
         return res.redirect('/');
     } catch (error) {

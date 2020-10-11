@@ -31,7 +31,18 @@ module.exports = function(sequelize, DataTypes) {
       gender: {
         type: DataTypes.BOOLEAN,
         allowNull: false
-      }
+      },
+      socialworker_idsocialworker: {
+        type: DataTypes.INTEGER(11),
+        allowNull: false,
+        references: {
+          model: {
+            tableName: 'socialworker',
+          },
+          key: 'idsocialworker'
+        },
+        unique: "fk_senior_socialworker"
+      },
     }, {
       timestamps: false,
       sequelize,
