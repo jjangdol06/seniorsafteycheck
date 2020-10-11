@@ -35,6 +35,7 @@ module.exports = function(sequelize, DataTypes) {
     }, {
       timestamps: false,
       sequelize,
+      timestamps: false,
       tableName: 'senior'
     });
   };

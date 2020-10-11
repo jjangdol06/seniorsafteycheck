@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('call', {
+    return sequelize.define('safetycheck', {
       idsafetycheck: {
         type: DataTypes.INTEGER(11),
         autoIncrement: true,
@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
           },
           key: 'idservice'
         },
-        unique: "fk_call_service1"
+        unique: "fk_safetycheck_service1"
       },
       senior_idsenior: {
         type: DataTypes.INTEGER(11),
@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
           },
           key: 'idsenior'
         },
-        unique: "fk_call_senior1"
+        unique: "fk_safetycheck_senior1"
       },
       socialworker_idsocialworker: {
         type: DataTypes.INTEGER(11),
@@ -39,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
           },
           key: 'idsocialworker'
         },
-        unique: "fk_call_socialworker1"
+        unique: "fk_safetycheck_socialworker1"
       },
       completed: {
         type: DataTypes.BOOLEAN,
@@ -61,10 +61,11 @@ module.exports = function(sequelize, DataTypes) {
           },
           key: 'idstate'
         },
-        unique: "fk_call_state1"
+        unique: "fk_safetycheck_state1"
       }
     }, {
       sequelize,
-      tableName: 'call'
+      timestamps: true,
+      tableName: 'safetycheck'
     });
   };

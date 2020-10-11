@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('senior_has_details', {
+  return sequelize.define('senior_has_detail', {
     senior_idsenior: {
       type: DataTypes.INTEGER(11),
       autoIncrement: true,
@@ -27,6 +27,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     sequelize,
-    tableName: 'senior_has_details'
+    timestamps: false,
+    tableName: 'senior_has_detail'
   });
 };

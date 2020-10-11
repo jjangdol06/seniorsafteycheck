@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('', {
+    return sequelize.define('detail', {
       iddetail: {
         type: DataTypes.INTEGER(11),
         autoIncrement: true,
@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
       detailname: {
         type: DataTypes.STRING(10),
         allowNull: false,
-        unique: "diseasecode_UNIQUE"
+        unique: "detailname_UNIQUE"
       },
       risk: {
         type: DataTypes.INTEGER(11),
@@ -19,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }, {
       sequelize,
-      tableName: 'disease'
+      timestamps: false,
+      tableName: 'detail'
     });
   };
