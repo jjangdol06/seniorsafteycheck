@@ -16,6 +16,9 @@ const passportConfig = require('./passport');
 
 const app = express()
 
+// Batch Schedule
+const batchSchedule = require('./batch/schedule');
+
 sequelize.sync({
     force: false,
     })
@@ -75,3 +78,8 @@ app.use((err, req, res) => {
 app.listen(app.get('port'), () => {
     console.log('waiting on port', app.get('port'))
 })
+
+// Batch Task
+batchSchedule.completedIsZero();
+batchSchedule.ARS1();
+batchSchedule.ARS2();
