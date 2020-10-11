@@ -20,9 +20,9 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       references: {
         model: {
-          tableName: 'disease',
+          tableName: 'detail',
         },
-        key: 'iddisease'
+        key: 'iddetail'
       }
     }
   }, {
