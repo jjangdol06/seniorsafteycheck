@@ -106,7 +106,7 @@ exports.safetycheck = async (req, res) => {
         // if (ex) {
         //     throw new Error('safetycheck exists')
         // }
-        const senior = await Senior.create({
+        const safetycheck = await Safetycheck.create({
             service_idservice: service_idservice, 
             senior_idsenior: senior_idsenior, 
             socialworker_idsocialworker: socialworker_idsocialworker, 
