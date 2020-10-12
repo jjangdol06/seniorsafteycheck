@@ -4,9 +4,11 @@ const router = require('express').Router()
 const createdata = require('./api/create-data/index')
 const auth = require('./api/auth/index')
 const user = require('./api/user/index')
+const manageprogress = require('./api/manage-progress/index')
 
 router.use('/create-data', createdata)
 router.use('/', auth) // 회원가입, 로그인, 로그아웃
 router.use('/mypage', user) // 마이페이지
+router.use('/manage-progress', manageprogress) // 관리 진행 현황
 
 module.exports = router
