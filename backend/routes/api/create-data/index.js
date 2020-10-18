@@ -11,7 +11,7 @@ router.get('/service', controller.getservice)
 router.post('/detail', controller.detail) // 1: 당뇨 2: 고혈압 3: 치매 4: 청각장애 5: 시각장애 6: 거동불편
 router.get('/detail', controller.getdetail)
 
-// // DB create api
+// DB create api
 router.post('/socialworker', controller.socialworker) // 사회 복지사
 router.get('/socialworker', controller.getsocialworker)
 router.post('/senior', controller.senior) // 노인
