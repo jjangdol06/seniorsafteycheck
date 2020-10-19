@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
         primaryKey: true
       },
       state: {
-        type: DataTypes.INTEGER(10),
+        type: DataTypes.STRING(5),
         allowNull: false,
         unique: "state_UNIQUE"
       }
