@@ -58,3 +58,14 @@ exports.postsafetycheck = async () => {
         })
     }
 }
+
+exports.daysafetycheck = async (req, res) => {
+    try {
+        const safetycheck = await Safetycheck.findAll()
+        res.json({ safetycheck })
+    } catch (error) {
+        res.status(409).json({
+            message: error.message
+        })
+    }
+}
