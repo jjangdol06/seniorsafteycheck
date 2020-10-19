@@ -1,0 +1,39 @@
+.SigninInsert {
+    display: inline-block;
+    background-color: white;
+    padding:0.3rem;
+    input {
+        display: flex;
+        margin: auto;
+        width:97%;
+        margin-top:15px;
+        background: white;
+        border-color: #5d6063;
+        border-radius: 4px;
+        font-size:1.125rem;
+        line-height: 1.5;
+        color:black;
+        &::placeholder {
+            color: #5d6063;
+        }
+    }
+}
+
+.name {
+    margin:auto;
+    display: flex;
+    width:98%;
+}
+
+button {
+    background: white;
+    outline: none;
+    border-color: #5d6063;
+    border-radius: 4px;
+    margin-top:15px;
+    margin-bottom:15px;
+    width: 50%;
+    padding: 0.5rem;
+    font-size:1.125rem;
+    line-height: 1.5;
+}

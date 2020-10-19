@@ -17,6 +17,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     }, {
+      timestamps: false,
       sequelize,
       timestamps: false,
       tableName: 'adminoffice'

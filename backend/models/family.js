@@ -36,6 +36,7 @@ module.exports = function(sequelize, DataTypes) {
         unique: "fk_family_senior1"
       }
     }, {
+      timestamps: false,
       sequelize,
       timestamps: false,
       tableName: 'family'
