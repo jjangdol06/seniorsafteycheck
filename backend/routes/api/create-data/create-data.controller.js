@@ -138,13 +138,13 @@ exports.getsafetycheck = async (req, res) => {
 exports.senior_has_detail = async (req, res) => {
     const { senior_idsenior, detail_iddetail } = req.body
     try {
-        const ex = await senior_has_detail.findOne({
+        const ex = await Senior_has_detail.findOne({
             where: { senior_idsenior: senior_idsenior, detail_iddetail: detail_iddetail }
         })
         if (ex) {
             throw new Error('senior-detail exists')
         }
-        const family = await Senior_has_detail.create({
+        const shd = await Senior_has_detail.create({
             senior_idsenior,
             detail_iddetail
         })
