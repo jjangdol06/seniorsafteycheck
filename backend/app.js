@@ -5,6 +5,7 @@ const passport = require('passport')
 const morgan = require('morgan')
 const session = require('express-session')
 const flash = require('connect-flash')
+const cors = require('cors')
 require('dotenv').config()
 
 const { sequelize } = require('./models')
@@ -55,6 +56,7 @@ app.use(session({
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(cors())
 
 
 // APi
