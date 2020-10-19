@@ -1,0 +1,25 @@
+html {
+    background-color: rgb(214, 214, 214);
+}
+
+.SigninTemplate {
+    width: 80%;
+    margin-top: 6rem;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+    background-color: white;
+}
+
+.app-title {
+    font-size: 1.5rem;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    display: flex;
+}
+
+.content {
+    text-align: center;
+    overflow: none;
+}

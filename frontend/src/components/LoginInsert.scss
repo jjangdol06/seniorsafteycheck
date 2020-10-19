@@ -1,0 +1,32 @@
+.LoginInsert {
+    display: inline-block;
+    background-color: white;
+    align-items: center;
+    input {
+        display: block;
+        align-items: center;
+        background: white;
+        outline: none;
+        border-color: #5d6063;
+        border-radius: 4px;
+        margin: 1rem;
+        padding: 0.3rem;
+        font-size:1.125rem;
+        line-height: 1.5;
+        color:black;
+        &::placeholder {
+            color: #5d6063;
+        }
+    }
+    flex: 1;
+}
+
+button {
+    background: white;
+    outline: none;
+    border-color: #5d6063;
+    border-radius: 4px;
+    padding: 0.3rem;
+    font-size:1.125rem;
+    line-height: 1.5;
+}
