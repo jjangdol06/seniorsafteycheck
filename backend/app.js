@@ -82,6 +82,7 @@ app.listen(app.get('port'), () => {
 })
 
 // Batch Task
-batchSchedule.completedIsZero();
 batchSchedule.ARS1();
 batchSchedule.ARS2();
+batchSchedule.CALL();
+batchSchedule.VISIT();
