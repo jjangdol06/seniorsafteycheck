@@ -63,9 +63,9 @@ class Dashboard extends Component {
 
     getsafetycheckList = async () => {
         const {
-            data: { list:{seniors}, },
+            data: { list },
         } = await axios.get("http://127.0.0.1:7000/management/safetycheck/")
-        this.setState({ safetycheck: seniors, isLoading: false })
+        this.setState({ safetycheck: list, isLoading: false })
     }
 
     componentDidMount() {
@@ -100,18 +100,22 @@ class Dashboard extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {isLoading ? 'Loading' : safetycheck.map((sc, i) => {
-                                        return <tr>
-                                            <td>{i}</td>
-                                            <td>{sc.name}</td>
-                                            <td>자동응답 서비스</td>
-                                            <td>2020.08.02 13:00</td>
-                                            <td>
-                                                <span className="py-0 px-1 bg-success rounded text-white">좋음</span>
-                                            </td>
-                                            <td>010-2490-0000</td>
-                                            <td>고혈압/딩뇨</td>
-                                        </tr>
+                                    {isLoading ? 'Loading' : safetycheck.map((sc) => {
+                                            return sc.seniors.map((info, i) => {
+                                                console.log(info.name)
+                                                console.log(i)
+                                                return <tr>
+                                                    <td>{i}</td>
+                                                    <td>{info.name}</td>
+                                                    <td>자동응답 서비스</td>
+                                                    <td>2020.08.02 13:00</td>
+                                                    <td>
+                                                        <span className="py-0 px-1 bg-success rounded text-white">좋음</span>
+                                                    </td>
+                                                    <td>{info.phone}</td>
+                                                    <td>고혈압/딩뇨</td>
+                                                </tr>
+                                            })
                                     })}
                                 </tbody>
                             </Table>

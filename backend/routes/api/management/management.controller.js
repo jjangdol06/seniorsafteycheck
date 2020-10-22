@@ -66,6 +66,7 @@ exports.daysafetycheck = async (req, res) => {
     // var senioridlist = []
     // var seniorname = []
     // var seniorphone = []
+    var sclist = []
 
     try {
         // const senior = await Senior.findAll({
@@ -80,18 +81,18 @@ exports.daysafetycheck = async (req, res) => {
         // })
         // console.log(senioridlist)
         const list = await Socialworker.findAll({
-            where:{ idsocialworker: 1 }, //req.body.id
+            where: { idsocialworker: 1 }, //req.body.id
+            attributes: [],
             include: [{
                 model: Senior,
                 attributes: ['name', 'phone'],
                 through: {
-                //   where: {completed: true}
-                    // as: ['sc']
+                    attribute: []
                 }
-              }],
-            //   raw: true
+            }]
+            // raw:true
         })
-        res.json(list)
+        res.json({list})
     } catch (error) {
         res.status(409).json({
             message: error.message
