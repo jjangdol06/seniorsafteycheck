@@ -6,10 +6,10 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   Button,
   NavbarText
 } from 'reactstrap';
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
 Navbar.propTypes = {
@@ -39,9 +39,7 @@ const NavbarTemplate = (props) => {
               <NavLink to="/">홈</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/management">
-                운영관리
-              </NavLink>
+              <NavLink to="/management">운영 관리</NavLink>
             </NavItem>
             <NavItem>
               <NavLink to="/profile">내 정보</NavLink>

@@ -31,27 +31,27 @@ import Dates from './Dates';
 import Kanban from './Kanban';
 
 const data = {
-	labels: [
-		'긴급',
-		'일반',
+    labels: [
+        '긴급',
+        '일반',
         '좋음',
         '미정'
-	],
-	datasets: [{
-		data: [300, 50, 100, 40],
-		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-        '#FFCE56',
-        '#50FE50'
-		],
-		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-        '#FFCE56',
-        '#50FE50'
-		]
-	}]
+    ],
+    datasets: [{
+        data: [300, 50, 100, 40],
+        backgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56',
+            '#50FE50'
+        ],
+        hoverBackgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56',
+            '#50FE50'
+        ]
+    }]
 };
 
 class Dashboard extends Component {
@@ -63,9 +63,9 @@ class Dashboard extends Component {
 
     getsafetycheckList = async () => {
         const {
-            data: { safetycheck },
+            data: { list:{seniors}, },
         } = await axios.get("http://127.0.0.1:7000/management/safetycheck/")
-        this.setState({ safetycheck: safetycheck, isLoading: false })
+        this.setState({ safetycheck: seniors, isLoading: false })
     }
 
     componentDidMount() {
@@ -100,18 +100,19 @@ class Dashboard extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {isLoading ? 'Loading' : safetycheck.map((sc) => {
+                                    {isLoading ? 'Loading' : safetycheck.map((sc, i) => {
                                         return <tr>
-                                                    <td>1</td>
-                                                    <td>{sc.senior_idsenior}</td>
-                                                    <td>자동응답 서비스</td>
-                                                    <td>2020.08.02 13:00</td>
-                                                    <td>
-                                                        <span className="py-0 px-1 bg-success rounded text-white">좋음</span>
-                                                    </td>
-                                                    <td>010-2490-0000</td>
-                                                    <td>고혈압/딩뇨</td>
-                                                </tr>})}
+                                            <td>{i}</td>
+                                            <td>{sc.name}</td>
+                                            <td>자동응답 서비스</td>
+                                            <td>2020.08.02 13:00</td>
+                                            <td>
+                                                <span className="py-0 px-1 bg-success rounded text-white">좋음</span>
+                                            </td>
+                                            <td>010-2490-0000</td>
+                                            <td>고혈압/딩뇨</td>
+                                        </tr>
+                                    })}
                                 </tbody>
                             </Table>
                         </Widget>
