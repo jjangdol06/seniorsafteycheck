@@ -1,26 +1,13 @@
 import React, { Component } from 'react';
-import { useState } from 'react';
 import cx from 'classnames';
-import ProtoTypes from 'prop-types';
 import axios from 'axios';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 //import {connect} from 'react-redux';
 
 import {
     Row,
     Col,
-    Alert,
     Button,
-    ButtonGroup,
-    Breadcrumb,
-    BreadcrumbItem,
-    Progress,
-    Badge,
-    ListGroup,
-    ButtonDropdown,
-    DropdownMenu,
-    DropdownToggle,
-    DropdownItem,
     Table
 } from 'reactstrap';
 
@@ -55,7 +42,6 @@ const data = {
 };
 
 class Dashboard extends Component {
-
     state = {
         isLoading: true,
         safetycheck: [],

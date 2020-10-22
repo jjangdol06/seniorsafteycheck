@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { TabContent, TabPane, Table, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Table, Nav, NavItem, NavLink, Row } from 'reactstrap';
 import classnames from 'classnames';
 import cx from 'classnames';
 import s from './Dashboard.scss';
@@ -16,7 +15,7 @@ const PersonalInfo = (props) => {
     }
 
     return (
-        <div style={{ marginTop:30 }}>
+        <div id = "dailyInfo">
             <ul>
                 <li>이름:{personName}</li>
                 <li>성별:여자</li>

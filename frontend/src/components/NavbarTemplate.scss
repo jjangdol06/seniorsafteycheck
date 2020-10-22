@@ -1,4 +1,4 @@
-@import '../../styles/app';
+@import '../styles/app';
 
 .root {
   background: $navbar-bg-color;
@@ -150,7 +150,7 @@
     color: $white;
     font-size: 0.55rem;
     width: 15px;
-    height: 15px;
+    // height: 15px;
     border-radius: 50%;
     background-color: theme-color('danger');
   }
@@ -166,5 +166,9 @@
 
 li.nav-item {
     margin-left:10px;
+    padding:10px;
 }
 
+button {
+  width: max-content!important;
+}
