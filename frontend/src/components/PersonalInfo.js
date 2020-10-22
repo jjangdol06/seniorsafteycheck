@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { TabContent, TabPane, Table, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Table, Nav, NavItem, NavLink, Row } from 'reactstrap';
 import classnames from 'classnames';
 import cx from 'classnames';
 import s from './Dashboard.scss';

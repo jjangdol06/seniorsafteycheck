@@ -123,7 +123,7 @@ class Dashboard extends Component {
                         <td>-</td>
                         <td>
                             <Link to="/management">
-                                <Button color="link">상세 정보 보기</Button>
+                                <Button href="/management" color="link">상세 정보 보기</Button>
                             </Link>
                         </td>
                     </tr>
@@ -138,7 +138,7 @@ class Dashboard extends Component {
                         <td>고혈압/당뇨</td>
                         <td>
                         <Link to="/management">
-                                <Button color="link">상세 정보 보기</Button>
+                                <Button href="/management" color="link">상세 정보 보기</Button>
                             </Link>
                         </td>
                     </tr>
