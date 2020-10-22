@@ -101,6 +101,7 @@ class Dashboard extends Component {
                                 </thead>
                                 <tbody>
                                     {isLoading ? 'Loading' : safetycheck.map((sc) => {
+                                        console.log(sc.senior.name)
                                             return sc.seniors.map((info, i) => {
                                                 console.log(info.name)
                                                 console.log(i)

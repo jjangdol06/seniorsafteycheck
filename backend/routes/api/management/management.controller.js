@@ -88,9 +88,12 @@ exports.daysafetycheck = async (req, res) => {
                 attributes: ['name', 'phone'],
                 through: {
                     attribute: []
-                }
-            }]
-            // raw:true
+                },
+                raw:true,
+                nest: false,
+            }],
+            raw:true,
+            nest: false,
         })
         res.json({list})
     } catch (error) {
