@@ -5,6 +5,7 @@ import './ScrollableList.scss';
 class ScrollableList extends Component {
   static propTypes = {
     listItems: PropTypes.array.isRequired,
+    personName: PropTypes.string.isRequired,
     heightOfItem: PropTypes.number,
     maxItemsToRender: PropTypes.number,
     style: PropTypes.object
@@ -14,6 +15,7 @@ class ScrollableList extends Component {
     heightOfItem: 30,
     maxItemsToRender: 50
   }
+
   constructor(props) {
     super(props)
     this.state = { scrollPosition: 0 }
@@ -22,8 +24,12 @@ class ScrollableList extends Component {
     this.setListRef = element => {
       this.list = element
     }
-
+    this.handleClick = this.handleClick.bind(this);
     this.updateScrollPosition = this.updateScrollPosition.bind(this)
+  }
+  
+  handleClick() {
+    this.props.personName = this.props.listItems.content;
   }
   componentDidMount() {
     this.list.addEventListener('scroll', this.updateScrollPosition)
@@ -62,9 +68,10 @@ class ScrollableList extends Component {
         />
         {this.props.listItems.slice(startPosition, endPosition).map(item => (
           <div
+            onClick={this.handleClick}
             className="react-scrollable-list-item"
             key={'list-item-' + item.id}>
-            {item.content}
+              {item.content}
           </div>
         ))}
         <div

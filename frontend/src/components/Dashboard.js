@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {useState} from 'react';
 import cx from 'classnames';
 import ProtoTypes from 'prop-types';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 //import {connect} from 'react-redux';
 
 import {
@@ -92,7 +92,9 @@ class Dashboard extends Component {
                         </td>
                         <td>고혈압/당뇨</td>
                         <td>
-                            <Button color="link">상세 정보 보기</Button>
+                            <Link to="/management">
+                                <Button href="/management" color="link">상세 정보 보기</Button>
+                            </Link>
                         </td>
                     </tr>
                     <tr>
@@ -105,7 +107,9 @@ class Dashboard extends Component {
                         </td>
                         <td>거동 불편</td>
                         <td>
-                            <Button color="link">상세 정보 보기</Button>
+                            <Link to="/management">
+                                <Button href="/management" color="link">상세 정보 보기</Button>
+                            </Link>
                         </td>
                     </tr>
                     <tr>
@@ -118,7 +122,9 @@ class Dashboard extends Component {
                         </td>
                         <td>-</td>
                         <td>
-                            <Button color="link">상세 정보 보기</Button>
+                            <Link to="/management">
+                                <Button color="link">상세 정보 보기</Button>
+                            </Link>
                         </td>
                     </tr>
                     <tr>
@@ -131,7 +137,9 @@ class Dashboard extends Component {
                         </td>
                         <td>고혈압/당뇨</td>
                         <td>
-                            <Button color="link">상세 정보 보기</Button>
+                        <Link to="/management">
+                                <Button color="link">상세 정보 보기</Button>
+                            </Link>
                         </td>
                     </tr>
                     </tbody>
