@@ -10,4 +10,7 @@ backend/.env
 
 # ignore .mwb, .png
 backend/seniorsafety.mwb
-backend/seniorsafety.png
+backend/seniorsafety.png 
+
+# frontend nodemodules
+frontend/node_modules
