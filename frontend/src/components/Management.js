@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'reactstrap';
+import { Table , Row, Col } from 'reactstrap';
 import Widget from './Widget/Widget';
 
 const Management = (props) => {

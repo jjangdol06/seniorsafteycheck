@@ -11,7 +11,8 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText
+  NavbarText,
+  Button
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
@@ -39,13 +40,15 @@ const NavbarTemplate = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">홈</NavLink>
+              <NavLink to="/">홈</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">운영확인</NavLink>
+              <NavLink to="/management">
+                <Button>운영확인</Button>
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">내 정보</NavLink>
+              <NavLink to="/mypage">내 정보</NavLink>
             </NavItem>
           </Nav>
           <NavbarText>Simple Text</NavbarText>
