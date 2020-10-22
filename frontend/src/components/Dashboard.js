@@ -32,9 +32,9 @@ import Kanban from './Kanban';
 const data = {
 	labels: [
 		'긴급',
-		'위험',
-        '보통',
-        '좋음'
+		'일반',
+        '좋음',
+        '미정'
 	],
 	datasets: [{
 		data: [300, 50, 100, 40],
@@ -77,8 +77,8 @@ class Dashboard extends Component {
                         <th>서비스 유형</th>
                         <th>응답 시간</th>
                         <th>최근 응답 결과</th>
-                        <th>전화번호</th>
                         <th>상세 정보</th>
+                        <th>운영 관리 페이지</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -88,10 +88,12 @@ class Dashboard extends Component {
                         <td>자동응답 서비스</td>
                         <td>2020.08.02 13:00</td>
                         <td>
-                        <span className="py-0 px-1 bg-success rounded text-white">좋음</span>
+                            <span className="py-0 px-1 bg-success rounded text-white">좋음</span>
                         </td>
-                        <td>010-2490-0000</td>
-                        <td>고혈압/딩뇨</td>
+                        <td>고혈압/당뇨</td>
+                        <td>
+                            <Button color="link">상세 정보 보기</Button>
+                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -99,10 +101,12 @@ class Dashboard extends Component {
                         <td>자동응답 서비스</td>
                         <td>2020.08.02 13:00</td>
                         <td>
-                            <span className="py-0 px-1 bg-warning rounded text-white">보통</span>
+                            <span className="py-0 px-1 bg-warning rounded text-white">일반</span>
                         </td>
-                        <td>010-2490-0000</td>
-                        <td>고혈압/딩뇨</td>
+                        <td>거동 불편</td>
+                        <td>
+                            <Button color="link">상세 정보 보기</Button>
+                        </td>
                     </tr>
                     <tr>
                         <td>3</td>
@@ -110,10 +114,12 @@ class Dashboard extends Component {
                         <td>자동응답 서비스</td>
                         <td>2020.08.02 13:00</td>
                         <td>
-                        <span className="py-0 px-1 bg-success rounded text-white">좋음</span>
+                        <span className="py-0 px-1 bg-secondary rounded text-white">미정</span>
                         </td>
-                        <td>010-2490-0000</td>
-                        <td>고혈압/딩뇨</td>
+                        <td>-</td>
+                        <td>
+                            <Button color="link">상세 정보 보기</Button>
+                        </td>
                     </tr>
                     <tr>
                         <td>4</td>
@@ -121,10 +127,12 @@ class Dashboard extends Component {
                         <td>자동응답 서비스</td>
                         <td>2020.08.02 13:00</td>
                         <td>
-                            <span className="py-0 px-1 bg-danger rounded text-white">위험</span>
+                            <span className="py-0 px-1 bg-danger rounded text-white">긴급</span>
                         </td>
-                        <td>010-2490-0000</td>
-                        <td>고혈압/딩뇨</td>
+                        <td>고혈압/당뇨</td>
+                        <td>
+                            <Button color="link">상세 정보 보기</Button>
+                        </td>
                     </tr>
                     </tbody>
                 </Table>

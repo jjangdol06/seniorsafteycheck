@@ -1,48 +1,49 @@
 import React from 'react';
-import { Table } from 'reactstrap';
 import Widget from './Widget/Widget';
+import cx from 'classnames';
+import ProtoTypes from 'prop-types';
+import {Route, Link} from 'react-router-dom';
+import ScrollableList from './ScrollableList';
+import PersonalInfo from './PersonalInfo';
+import {
+  Row,
+  Col,
+  Alert,
+  Button,
+  Table
+} from 'reactstrap';
+import s from './Management.scss';
+
+let listItems = []
+for (let i = 1; i <= 50; i++) {
+  listItems.push({ id: i, content: "관리자" + i })
+}
 
 const Management = (props) => {
   return (
     <div className={s.root}>
     <Row>
-      <Col sm={12}>
-        <Widget className="Widget_widget__16nWC"
+        <Col xs={6} sm={4} lg={3}>
+        <Widget className="Widget_widget__43yVm"
         title={
             <div>
             <h5 className="mt-0 mb-3">
                 <i className="fa fa-user mr-xs opacity-70" />{' '}
-                가입자 주요 현황
+                관리 명단
             </h5>
             </div>
         }
         >
-        <Table responsive borderless className={cx('mb-0', s.usersTable)}>
-            <thead>
-            <tr>
-                <th>No.</th>
-                <th>이름</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>홍길동</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>홍길동</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>홍길동</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>홍길동</td>
-            </tr>
-            </tbody>
-        </Table>
+        <ScrollableList listItems={listItems}
+            heightOfItem={30}
+            maxItemsToRender={20}
+            style={{ color: '#333' }}
+        />
+        </Widget>
+        </Col>
+        <Col sm={6}>
+        <Widget className="Widget_widget__43yVm">
+            <PersonalInfo personName={"관리자1"} />
         </Widget>
         </Col>
     </Row>
