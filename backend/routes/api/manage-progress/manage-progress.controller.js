@@ -25,7 +25,7 @@ exports.getprogress = async (req, res, next) => {
                 createdAt: {
                     [Op.gte]: today,
                     [Op.lt]: tomorrow
-                  }
+                }
             },
         });
 
