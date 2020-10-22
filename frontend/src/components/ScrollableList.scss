@@ -1,0 +1,20 @@
+.react-scrollable-list {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: calc(100vh - 40px);
+    width: 100%;
+    overflow-y: scroll;
+    border: #ddd solid 1px;
+    border-radius: 7px;
+  }
+  
+  .react-scrollable-list-item {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #ffffff;
+    border-bottom: #ddd solid 1px;
+    pointer-events: none;
+  }
