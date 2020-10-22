@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //import {connect} from 'react-redux';
 
 import {
@@ -18,12 +18,6 @@ import Dates from './Dates';
 import Kanban from './Kanban';
 
 const data = {
-    labels: [
-        '긴급',
-        '일반',
-        '좋음',
-        '미정'
-    ],
     datasets: [{
         data: [300, 50, 100, 40],
         backgroundColor: [
@@ -45,13 +39,26 @@ class Dashboard extends Component {
     state = {
         isLoading: true,
         safetycheck: [],
+        seniorname: [],
+        labels: [
+            '긴급',
+            '일반',
+            '좋음',
+            '미정'
+        ],
+        services: [
+            'ARS',
+            '직접통화',
+            '방문'
+        ]
     }
 
     getsafetycheckList = async () => {
         const {
-            data: { list },
+            data: { sclist, seniorname },
         } = await axios.get("http://127.0.0.1:7000/management/safetycheck/")
-        this.setState({ safetycheck: list, isLoading: false })
+        console.log(sclist, seniorname)
+        this.setState({ safetycheck: sclist, seniorname: seniorname, isLoading: false })
     }
 
     componentDidMount() {
@@ -60,7 +67,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        const { safetycheck, isLoading } = this.state
+        const { safetycheck, isLoading, seniorname, labels, services } = this.state
         return (
             <div className={s.root}>
                 <Row>
@@ -86,23 +93,17 @@ class Dashboard extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {isLoading ? 'Loading' : safetycheck.map((sc) => {
-                                        console.log(sc.senior.name)
-                                            return sc.seniors.map((info, i) => {
-                                                console.log(info.name)
-                                                console.log(i)
-                                                return <tr>
-                                                    <td>{i}</td>
-                                                    <td>{info.name}</td>
-                                                    <td>자동응답 서비스</td>
-                                                    <td>2020.08.02 13:00</td>
-                                                    <td>
-                                                        <span className="py-0 px-1 bg-success rounded text-white">좋음</span>
-                                                    </td>
-                                                    <td>{info.phone}</td>
-                                                    <td>고혈압/딩뇨</td>
-                                                </tr>
-                                            })
+                                    {isLoading ? 'Loading' : safetycheck.map((sc, i) => {
+                                        return <tr>
+                                            <td>{i}</td>
+                                            <td>{seniorname[i]}</td>
+                                            <td>{services[sc.service_idservice]}</td>
+                                            <td>{sc.createdAt}</td>
+                                            <td>
+                                                <span className="py-0 px-1 bg-success rounded text-white">{labels[sc.state_idstate]}</span>
+                                            </td>
+                                            <td>고혈압/딩뇨</td>
+                                        </tr>
                                     })}
                                 </tbody>
                             </Table>
