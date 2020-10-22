@@ -7,12 +7,8 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
-  Button
+  Button,
+  NavbarText
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
@@ -44,11 +40,11 @@ const NavbarTemplate = (props) => {
             </NavItem>
             <NavItem>
               <NavLink to="/management">
-                <Button>운영확인</Button>
+                운영관리
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/mypage">내 정보</NavLink>
+              <NavLink to="/profile">내 정보</NavLink>
             </NavItem>
           </Nav>
           <NavbarText>Simple Text</NavbarText>

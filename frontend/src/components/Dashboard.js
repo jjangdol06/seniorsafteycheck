@@ -31,27 +31,27 @@ import Dates from './Dates';
 import Kanban from './Kanban';
 
 const data = {
-    labels: [
-        '긴급',
-        '위험',
-        '보통',
-        '좋음'
-    ],
-    datasets: [{
-        data: [300, 50, 100, 40],
-        backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56',
-            '#50FE50'
-        ],
-        hoverBackgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56',
-            '#50FE50'
-        ]
-    }]
+	labels: [
+		'긴급',
+		'일반',
+        '좋음',
+        '미정'
+	],
+	datasets: [{
+		data: [300, 50, 100, 40],
+		backgroundColor: [
+		'#FF6384',
+		'#36A2EB',
+        '#FFCE56',
+        '#50FE50'
+		],
+		hoverBackgroundColor: [
+		'#FF6384',
+		'#36A2EB',
+        '#FFCE56',
+        '#50FE50'
+		]
+	}]
 };
 
 class Dashboard extends Component {
