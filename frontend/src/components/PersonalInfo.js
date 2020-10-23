@@ -71,7 +71,7 @@ class PersonalInfo extends Component {
         const { info1, info2, info3, isLoading, labels } = this.state
         console.log(info1)
         return (
-            <div id="dailyinfo">
+            <div id="dailyInfo">
                 <ul>
                     <li>이름:{this.props.name}</li>
                     <li>성별:여자</li>
