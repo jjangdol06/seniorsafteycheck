@@ -8,19 +8,19 @@ exports.getprogress = async (req, res, next) => {
     let flag = 0;
 
     // 오늘
-    let today = new Date();
-    today.setHours(0, 0, 0, 0); // 시간/분/초/밀리초를 00:00:00:00 으로 지정
+    let today = new Date().getDate() - 30;
+    // today.setHours(0, 0, 0, 0); // 시간/분/초/밀리초를 00:00:00:00 으로 지정
 
     // 오늘+1
     let tomorrow = new Date();
     tomorrow.setHours(0, 0, 0, 0);
-    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setDate(tomorrow.getDate() + 40)
 
     try {
         // 1명의 사회복지사가 오늘 방문 관리해야하는 safetycheck filtering
         const ex = await Safetycheck.findAll({ 
             where : { 
-                socialworker_idsocialworker: req.user.idsocialworker, 
+                socialworker_idsocialworker: req.body.idsocialworker , //req.user.idsocialworker
                 service_idservice: 3,
                 createdAt: {
                     [Op.gte]: today,
@@ -42,7 +42,7 @@ exports.getprogress = async (req, res, next) => {
 
         id_flag_mapping = Object.fromEntries(id_flag_mapping); // mapping 값 전달하기 위함
 
-        return res.send({ id_flag_mapping : id_flag_mapping });
+        return res.json({ id_flag_mapping : id_flag_mapping });
     } catch(error) {
         console.error(error);
         next(error);
