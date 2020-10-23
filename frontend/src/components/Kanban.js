@@ -52,16 +52,16 @@ const getItemStyleLeft = (isDragging, draggableStyle) => ({
 });
 
 const getItemStyleRight = (isDragging, draggableStyle) => ({
-  // some basic styles to make the items look a bit nicer
-  userSelect: 'none',
-  padding: grid * 2,
-  margin: `0 0 ${grid}px 0`,
+    // some basic styles to make the items look a bit nicer
+    userSelect: 'none',
+    padding: grid * 2,
+    margin: `0 0 ${grid}px 0`,
 
-  // change background colour if dragging
-  background: isDragging ? 'lightgreen' : 'grey',
+    // change background colour if dragging
+    background: isDragging ? 'lightgreen' : 'grey',
 
-  // styles we need to apply on draggables
-  ...draggableStyle
+    // styles we need to apply on draggables
+    ...draggableStyle
 });
 
 const getListStyleLeft = isDraggingOver => ({
@@ -71,15 +71,18 @@ const getListStyleLeft = isDraggingOver => ({
 });
 
 const getListStyleRight = isDraggingOver => ({
-  background: isDraggingOver ? 'lightblue' : 'lightgrey',
-  padding: grid,
-  width: 250
+    background: isDraggingOver ? 'lightblue' : 'lightgrey',
+    padding: grid,
+    width: 250
 });
 
 class Kanban extends Component {
     state = {
-        items: getItems(5),
-        selected: getItems(3, 5)
+        items: [],
+        selected: [],
+        visitprogresstrue: [],
+        visitprogressfalse: [],
+        isLoading: true,
     };
 
     /**
@@ -133,10 +136,27 @@ class Kanban extends Component {
 
     getseniorlist = async () => {
         const {
-            data: { sclist, seniorname },
-        } = await axios.get("http://127.0.0.1:7000/management/safetycheck/")
-        console.log(sclist, seniorname)
-        this.setState({ safetycheck: sclist, seniorname: seniorname, isLoading: false })
+            data: { ex },
+        } = await axios.get("http://127.0.0.1:7000/manage-progress/", {
+            params: { idsocialworker: 1 }  // req.user.id
+        })
+        this.setState({ visitprogress: ex, isLoading: false })
+        this.visitprogresstrue = []
+        this.visitprogressfalse = []
+        ex.map((data, i) => {
+            if (data.completed == true) {
+                this.state.visitprogresstrue.push({
+                    id: 'k' + data.senior_idsenior,
+                    content: data.senior_idsenior
+                })
+            } else {
+                this.state.visitprogressfalse.push({
+                    id: 'k' + data.senior_idsenior,
+                    content: data.senior_idsenior
+                })
+            }
+        })
+        this.setState({ items : this.state.visitprogressfalse, selected: this.state.visitprogresstrue})
     }
 
     componentDidMount() {
@@ -146,6 +166,8 @@ class Kanban extends Component {
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity
     render() {
+        const { visitprogress } = this.state
+        console.log(visitprogress)
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
                 <Droppable droppableId="droppable">

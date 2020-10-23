@@ -34,7 +34,7 @@ class Dates extends Component{
 
     setStartDate(date) {
         this.startDate = date
-        console.log(date)
+        console.log(this.startDate)
     }
     
     render() {
