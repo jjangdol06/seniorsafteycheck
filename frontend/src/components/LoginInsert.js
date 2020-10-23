@@ -1,6 +1,6 @@
 import React from 'react';
 import './LoginInsert.scss';
-import { Link, Redirect, Router } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 const submitHandler = (event) => {
@@ -11,7 +11,9 @@ const submitHandler = (event) => {
         password: event.target.pwd.value
     }).then(function(response){
         console.log(response);
-        // return <Redirect to = "/" />;
+        return (
+            <Redirect to='/' />
+        );
     }).catch(function(error){
         console.log(error);
     });

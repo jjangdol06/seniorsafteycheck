@@ -21,7 +21,9 @@ exports.signup = async (req, res, next) => {
             name,
             profileimg
         });
-        return res.redirect('/');
+        return res.status(200).json({
+            message: 'Signup Success'
+        });
     } catch (error) {
         console.error(error);
         return next(error);
