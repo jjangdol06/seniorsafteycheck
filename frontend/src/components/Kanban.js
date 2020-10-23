@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './Kanban.scss';
+import axios from 'axios'
 
 // fake data generator
 const getItems = (count, offset = 0) =>
@@ -129,6 +130,18 @@ class Kanban extends Component {
             });
         }
     };
+
+    getseniorlist = async () => {
+        const {
+            data: { sclist, seniorname },
+        } = await axios.get("http://127.0.0.1:7000/management/safetycheck/")
+        console.log(sclist, seniorname)
+        this.setState({ safetycheck: sclist, seniorname: seniorname, isLoading: false })
+    }
+
+    componentDidMount() {
+        this.getseniorlist()
+    }
 
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity

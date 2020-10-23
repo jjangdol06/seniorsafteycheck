@@ -100,7 +100,7 @@ class Dashboard extends Component {
                                             <td>{services[sc.service_idservice]}</td>
                                             <td>{sc.createdAt}</td>
                                             <td>
-                                                <span className="py-0 px-1 bg-success rounded text-white">{labels[sc.state_idstate]}</span>
+                                                <span className="py-0 px-1 bg-success rounded text-white">{labels[sc.state_idstate-1]}</span>
                                             </td>
                                             <td>고혈압/딩뇨</td>
                                         </tr>
