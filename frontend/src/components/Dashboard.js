@@ -21,16 +21,16 @@ const data = {
     datasets: [{
         data: [300, 50, 100, 40],
         backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56',
-            '#50FE50'
+            'red',
+            'blue',
+            'green',
+            'orange'
         ],
         hoverBackgroundColor: [
             '#FF6384',
             '#36A2EB',
+            '#50FE50',
             '#FFCE56',
-            '#50FE50'
         ],
     }]
 };
