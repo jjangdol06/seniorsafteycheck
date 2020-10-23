@@ -20,4 +20,15 @@ db.Service = require('./service')(sequelize, Sequelize);
 db.Socialworker = require('./socialworker')(sequelize, Sequelize);
 db.State = require('./state')(sequelize, Sequelize);
 
+
+// safetycheck
+db.Senior.belongsToMany(db.Socialworker, {
+  through: db.Safetycheck,
+  foreignKey: 'senior_idsenior'
+})
+db.Socialworker.belongsToMany(db.Senior, {
+  through: db.Safetycheck,
+  foreignKey: 'socialworker_idsocialworker'
+})
+
 module.exports = db;

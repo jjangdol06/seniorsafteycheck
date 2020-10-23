@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './ScrollableList.scss';
+import { NavLink } from 'react-router-dom';
 
 class ScrollableList extends Component {
   static propTypes = {
     listItems: PropTypes.array.isRequired,
-    personName: PropTypes.string.isRequired,
+    personName: PropTypes.string,
     heightOfItem: PropTypes.number,
     maxItemsToRender: PropTypes.number,
     style: PropTypes.object
@@ -67,12 +68,14 @@ class ScrollableList extends Component {
           }}
         />
         {this.props.listItems.slice(startPosition, endPosition).map(item => (
-          <div
-            onClick={this.handleClick}
-            className="react-scrollable-list-item"
-            key={'list-item-' + item.id}>
-              {item.content}
-          </div>
+          <NavLink to={`/management/${item.id}`}>
+            <div
+              onClick={this.handleClick}
+              className="react-scrollable-list-item"
+              key={'list-item-' + item.id}>
+                {item.content}
+            </div>
+          </NavLink>
         ))}
         <div
           key="list-spacer-bottom"

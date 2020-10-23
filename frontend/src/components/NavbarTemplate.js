@@ -6,12 +6,12 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   Button,
   NavbarText
 } from 'reactstrap';
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
-
+import './NavbarTemplate.scss';
 Navbar.propTypes = {
   light: PropTypes.bool,
   dark: PropTypes.bool,
@@ -39,15 +39,15 @@ const NavbarTemplate = (props) => {
               <NavLink to="/">홈</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="./management">
-                운영관리
-              </NavLink>
+              <NavLink to="/management/default">운영 관리</NavLink>
             </NavItem>
             <NavItem>
               <NavLink to="/profile">내 정보</NavLink>
             </NavItem>
           </Nav>
-          <NavbarText>로그인한 사람 이름</NavbarText>
+            <NavLink to="/login">
+              <Button style={{width:"max-content"}}>로그인</Button>
+            </NavLink>
         </Collapse>
       </Navbar>
     </div>
