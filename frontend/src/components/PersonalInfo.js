@@ -1,5 +1,5 @@
 import React, { useState, Component } from 'react';
-import { TabContent, TabPane, Table, Nav, NavItem, NavLink, Row } from 'reactstrap';
+import { TabContent, TabPane, Table, Nav, NavItem, NavLink, Row, Button } from 'reactstrap';
 import classnames from 'classnames';
 import cx from 'classnames';
 import s from './Dashboard.scss';
@@ -19,6 +19,12 @@ class PersonalInfo extends Component {
             info2: [],
             info3: [],
             isLoading: true,
+            labels: [
+                '긴급',
+                '일반',
+                '좋음',
+                '미정'
+            ],
         };
     }
 
@@ -44,17 +50,16 @@ class PersonalInfo extends Component {
             })
 
         safetycheck.map((data) => {
-            if(data.service_idservice ==1){
-                console.log(data)
+            if (data.service_idservice == 1) {
                 this.state.info1.push(data)
-            }else if(data.service_idservice ==1){
+            } else if (data.service_idservice == 1) {
                 this.state.info2.push(data)
-            }else{
+            } else {
                 this.state.info3.push(data)
             }
         })
         // this.setState({ info: safetycheck, isLoading: false })
-        this.setState({isLoading:false})
+        this.setState({ isLoading: false })
     }
 
     componentDidMount() {
@@ -63,7 +68,7 @@ class PersonalInfo extends Component {
     }
 
     render() {
-        const { info1, info2, info3 ,isLoading } = this.state
+        const { info1, info2, info3, isLoading, labels } = this.state
         console.log(info1)
         return (
             <div id="dailyinfo">
@@ -97,12 +102,76 @@ class PersonalInfo extends Component {
                 </Nav>
                 <TabContent activeTab={this.state.activeTab}>
                     <TabPane tabId="1">
-                        {this.state.activeTab == 1 ? <h4> {this.props.name}
-                            왜안되는데ㅍ{this.props.idsenior}</h4> : null}
+                        <Row>
+                            <Table responsive borderless className={cx('mb-0', s.usersTable)}>
+                                <thead>
+                                    <tr>
+                                        <th>일자</th>
+                                        <th>상태</th>
+                                        <th>기록</th>
+                                    </tr>
+                                </thead>
+                                {info1.map((data) => {
+                                    return <tbody>
+                                        <tr>
+                                            <td>{data.createdAt}</td>
+                                            <td>
+                                                <span className="py-0 px-1 bg-success rounded text-white">{labels[data.state_idstate - 1]}</span>
+                                            </td>
+                                            <td><Button>기록하기</Button></td>
+                                        </tr>
+                                    </tbody>
+                                })}
+                            </Table>
+                        </Row>
                     </TabPane>
                     <TabPane tabId="2">
-                        {/* <div>{info.map( data => {return <h4>{data.completed}</h4>})}</div> */}
-        {/* {this.state.activeTab == 2 ? ' : null} */}
+                        <Row>
+                            <Table responsive borderless className={cx('mb-0', s.usersTable)}>
+                                <thead>
+                                    <tr>
+                                        <th>일자</th>
+                                        <th>상태</th>
+                                        <th>기록</th>
+                                    </tr>
+                                </thead>
+                                {info2.map((data) => {
+                                    return <tbody>
+                                        <tr>
+                                            <td>{data.createdAt}</td>
+                                            <td>
+                                                <span className="py-0 px-1 bg-success rounded text-white">{labels[data.state_idstate - 1]}</span>
+                                            </td>
+                                            <td><Button>기록하기</Button></td>
+                                        </tr>
+                                    </tbody>
+                                })}
+                            </Table>
+                        </Row>
+                    </TabPane>
+                    <TabPane tabId="3">
+                        <Row>
+                            <Table responsive borderless className={cx('mb-0', s.usersTable)}>
+                                <thead>
+                                    <tr>
+                                        <th>일자</th>
+                                        <th>상태</th>
+                                        <th>기록</th>
+                                    </tr>
+                                </thead>
+                                {info3.map((data) => {
+                                    return <tbody>
+                                        <tr>
+                                            <td>{data.createdAt}</td>
+                                            <td>
+                                                <span className="py-0 px-1 bg-success rounded text-white">{labels[data.state_idstate - 1]}</span>
+                                            </td>
+                                            <td><Button>기록하기</Button></td>
+                                        </tr>
+                                    </tbody>
+                                })}
+                            </Table>
+                        </Row>
                     </TabPane>
                 </TabContent>
             </div>
