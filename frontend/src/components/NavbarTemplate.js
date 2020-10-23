@@ -39,7 +39,7 @@ const NavbarTemplate = (props) => {
               <NavLink to="/">홈</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/management">
+              <NavLink to="./management">
                 운영관리
               </NavLink>
             </NavItem>
@@ -47,7 +47,7 @@ const NavbarTemplate = (props) => {
               <NavLink to="/profile">내 정보</NavLink>
             </NavItem>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          <NavbarText>로그인한 사람 이름</NavbarText>
         </Collapse>
       </Navbar>
     </div>

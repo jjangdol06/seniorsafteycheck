@@ -19,6 +19,8 @@ for (let i = 1; i <= 50; i++) {
   listItems.push({ id: i, content: "관리자" + i })
 }
 
+let personName = listItems[1].content;
+
 const Management = (props) => {
   return (
     <div className={s.root}>
@@ -35,16 +37,17 @@ const Management = (props) => {
         }
         >
         <ScrollableList listItems={listItems}
+            personName={props.personName}
             heightOfItem={30}
             maxItemsToRender={20}
             style={{ color: '#333' }}
         />
         </Widget>
         </Col>
-        <Col sm={6}>
-        <Widget className="Widget_widget__43yVm">
-            <PersonalInfo personName={"관리자1"} />
-        </Widget>
+        <Col xs={12} sm={8}>
+          <Widget className="Widget_widget__43yVm">
+            <PersonalInfo personName={personName} />
+          </Widget>
         </Col>
     </Row>
     </div>

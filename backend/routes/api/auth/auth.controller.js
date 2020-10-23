@@ -42,7 +42,9 @@ exports.login = (req, res, next) => {
                 console.error(loginError);
                 return next(loginError);
             }
-            return res.redirect('/');
+            return res.status(200).json({
+                message: 'Login Success'
+            });
         });
     })(req, res, next);
 };

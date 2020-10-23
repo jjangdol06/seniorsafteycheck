@@ -16,7 +16,7 @@ const PersonalInfo = (props) => {
     }
 
     return (
-        <div style={{ marginTop:30 }}>
+        <div id = "dailyInfo">
             <ul>
                 <li>이름:{personName}</li>
                 <li>성별:여자</li>
