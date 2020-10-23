@@ -25,6 +25,7 @@ class PersonalInfo extends Component {
                 '좋음',
                 '미정'
             ],
+            color: ['red', 'orange', 'blue', 'green']
         };
     }
 
@@ -52,7 +53,7 @@ class PersonalInfo extends Component {
         safetycheck.map((data) => {
             if (data.service_idservice == 1) {
                 this.state.info1.push(data)
-            } else if (data.service_idservice == 1) {
+            } else if (data.service_idservice == 2) {
                 this.state.info2.push(data)
             } else {
                 this.state.info3.push(data)
@@ -68,7 +69,7 @@ class PersonalInfo extends Component {
     }
 
     render() {
-        const { info1, info2, info3, isLoading, labels } = this.state
+        const { info1, info2, info3, isLoading, labels, color } = this.state
         console.log(info1)
         return (
             <div id="dailyInfo">
@@ -116,7 +117,7 @@ class PersonalInfo extends Component {
                                         <tr>
                                             <td>{data.createdAt}</td>
                                             <td>
-                                                <span className="py-0 px-1 bg-success rounded text-white">{labels[data.state_idstate - 1]}</span>
+                                                <span className="py-0 px-1 rounded text-white" style={{background:color[data.state_idstate-1]}}>{labels[data.state_idstate - 1]}</span>
                                             </td>
                                             <td><Button>기록하기</Button></td>
                                         </tr>
@@ -140,7 +141,7 @@ class PersonalInfo extends Component {
                                         <tr>
                                             <td>{data.createdAt}</td>
                                             <td>
-                                                <span className="py-0 px-1 bg-success rounded text-white">{labels[data.state_idstate - 1]}</span>
+                                                <span className="py-0 px-1 rounded text-white" style={{background:color[data.state_idstate-1]}}>{labels[data.state_idstate - 1]}</span>
                                             </td>
                                             <td><Button>기록하기</Button></td>
                                         </tr>
@@ -164,7 +165,7 @@ class PersonalInfo extends Component {
                                         <tr>
                                             <td>{data.createdAt}</td>
                                             <td>
-                                                <span className="py-0 px-1 bg-success rounded text-white">{labels[data.state_idstate - 1]}</span>
+                                                <span className="py-0 px-1 rounded text-white" style={{background:color[data.state_idstate-1]}}>{labels[data.state_idstate - 1]}</span>
                                             </td>
                                             <td><Button>기록하기</Button></td>
                                         </tr>
