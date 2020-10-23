@@ -4,7 +4,7 @@ exports.seniorlist = async (req, res) => {
     try {
         const seniorlist = await Senior.findAll({
             where: {
-                socialworker_idsocialworker: req.user.id
+                socialworker_idsocialworker: 1   //req.user.id
             }
         })
         res.json({ seniorlist })
@@ -29,8 +29,9 @@ exports.seniordetail = async (req, res) => {
     }
 }
 
-exports.getsafetycheck = async () => {
-    const { idsenior } = req.body
+exports.getsafetycheck = async (req, res) => {
+    const { idsenior } = req.query
+    console.log(idsenior)
     try {
         const safetycheck = await Safetycheck.findAll({
             where: { senior_idsenior: idsenior }
@@ -63,36 +64,34 @@ exports.postsafetycheck = async () => {
 }
 
 exports.daysafetycheck = async (req, res) => {
-    // var senioridlist = []
-    // var seniorname = []
+    var senioridlist = []
+    var seniorname = []
     // var seniorphone = []
     var sclist = []
 
     try {
-        // const senior = await Senior.findAll({
-        //     where: { socialworker_idsocialworker: req.body.id },
-        //     raw: true
-        // }).then((result) => {
-        //     for (var i = 0; i < result.length; i++){
-        //         senioridlist.push(result[i].idsenior)
-        //         seniorname.push(result[i].name)
-        //         seniorphone.push(result[i].phone)
-        //     }
-        // })
-        // console.log(senioridlist)
-        const list = await Socialworker.findAll({
-            where: { idsocialworker: 1 }, //req.body.id
-            attributes: [],
-            include: [{
-                model: Senior,
-                attributes: ['name', 'phone'],
-                through: {
-                    attribute: []
-                }
-            }]
-            // raw:true
+        const senior = await Senior.findAll({
+            where: { socialworker_idsocialworker: 1 },  //req.users.id
+            raw: true
+        }).then((result) => {
+            for (var i = 0; i < result.length; i++){
+                senioridlist.push(result[i].idsenior)
+                seniorname.push(result[i].name)
+                // seniorphone.push(result[i].phone)
+            }
         })
-        res.json({list})
+        // console.log(senioridlist)
+        const list = await Safetycheck.findAll({
+            where: { senior_idsenior : senioridlist },
+            group: ['senior_idsenior']
+        }).then((result) => {
+            for (var i = 0; i < result.length; i++){
+                sclist.push(result[i])
+                // seniorname.push(result[i].name)
+                // seniorphone.push(result[i].phone)
+            }
+        })
+        res.json({sclist, seniorname })
     } catch (error) {
         res.status(409).json({
             message: error.message
