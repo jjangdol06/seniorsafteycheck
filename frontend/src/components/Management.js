@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, setProps } from 'react';
 import Widget from './Widget/Widget';
 import cx from 'classnames';
 import ProtoTypes from 'prop-types';
@@ -18,6 +18,11 @@ import axios from 'axios'
 let listItems = []
 
 class Management extends Component {
+
+    constructor(props){
+        // console.log
+        super(props)
+    }
 
     state = {
         isLoading: true,
@@ -59,6 +64,7 @@ class Management extends Component {
 
     render() {
         const {seniorlist, seniorid} = this.state
+        // PersonalInfo.setProps({ idsenior: seniorid[this.props.match.params.id] })
         return (
             <div className={s.root}>
                 <Row>
@@ -81,7 +87,7 @@ class Management extends Component {
                     </Col>
                     <Col xs={12} sm={8}>
                         <Widget className="Widget_widget__43yVm">
-                            <PersonalInfo name={seniorlist[this.props.match.params.id]} idsenior={seniorid[this.props.match.params.id]}/>
+                            <PersonalInfo key={this.props.location} name={seniorlist[this.props.match.params.id]} idsenior={seniorid[this.props.match.params.id]}/>
                         </Widget>
                     </Col>
                 </Row>

@@ -10,16 +10,16 @@ class PersonalInfo extends Component {
     constructor(props) {
         super(props);
 
-        console.log(props.idsenior)
-
         this.toggle = this.toggle.bind(this);
+        this.componentWillReceiveProps.bind(this)
+        // this.getsafetycheckList.bind(this)
         this.state = {
             activeTab: '1',
-            info: [],
+            info1: [],
+            info2: [],
+            info3: [],
             isLoading: true,
-            idsenior: props.idsenior,
         };
-        // this.componentDidMount.bind(this)
     }
 
     toggle(tab) {
@@ -28,31 +28,43 @@ class PersonalInfo extends Component {
         }
     }
 
-    getsafetycheckList = async () => {
+    componentWillReceiveProps = async (newProps) => {
+        console.log(newProps.idsenior)
+        this.getsafetycheckList(newProps)
+    }
+
+    getsafetycheckList = async (props) => {
         const {
             data: { safetycheck },
         } = await axios.get(`http://127.0.0.1:7000/management/safetylist/`,
             {
                 params: {
-                    idsenior: 1
+                    idsenior: props.idsenior
                 },
             })
-        // console.log(this.state.idsenior)
-        this.setState({ info: safetycheck, isLoading: false })
-    }
 
-
-    componentWillReceiveProps(){
-        console.log(this.props.idsenior)
+        safetycheck.map((data) => {
+            if(data.service_serviceid ==1){
+                console.log(data)
+                this.state.info1.push(data)
+            }else if(data.service_serviceid ==1){
+                this.state.info2.push(data)
+            }else{
+                this.state.info3.push(data)
+            }
+        })
+        // this.setState({ info: safetycheck, isLoading: false })
+        this.setState({isLoading:false})
     }
 
     componentDidMount() {
-        this.getsafetycheckList()
+        // this.getsafetycheckList()
+
     }
 
     render() {
-        const { info, isLoading, idsenior } = this.state
-        console.log(info)
+        const { info1, info2, info3 ,isLoading } = this.state
+        console.log(info1)
         return (
             <div id="dailyinfo">
                 <ul>
@@ -89,13 +101,16 @@ class PersonalInfo extends Component {
                             왜안되는데ㅍ{this.props.idsenior}</h4> : null}
                     </TabPane>
                     <TabPane tabId="2">
-                        {this.state.activeTab == 2 ? <h4>Tab 2 Contents</h4> : null}
+                        {/* <div>{info.map( data => {return <h4>{data.completed}</h4>})}</div> */}
+        {/* {this.state.activeTab == 2 ? ' : null} */}
                     </TabPane>
                 </TabContent>
             </div>
         );
     }
 }
+
+
 // class PersonalInfo extends Component {
 
 //     constructor(props) {
