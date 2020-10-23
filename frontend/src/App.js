@@ -7,7 +7,6 @@ import SigninInsert from './components/SigninInsert';
 import SigninTemplate from './components/SigninTemplate';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Route, Link, Switch, BrowserRouter } from 'react-router-dom';
-import LoginTemplate from './components/LoginTemplate';
 
 const App = () => {
   return (
@@ -16,7 +15,7 @@ const App = () => {
         <NavbarTemplate/>
         <Switch>
           <Route exact path="/" component={Dashboard}/>
-          <Route path="/management" component = {Management}/>
+          <Route path="/management/:id" component = {Management}/>
           <Route path="/login" component = {LoginTemplate}/>
           <Route path="/signin" children = {SigninInsert} component = {SigninTemplate}/>
         </Switch>

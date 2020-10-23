@@ -28,8 +28,8 @@ class PersonalInfo extends Component {
         }
     }
 
-    componentWillReceiveProps = async (newProps) => {
-        console.log(newProps.idsenior)
+    componentWillReceiveProps(newProps) {
+        console.log(newProps)
         this.getsafetycheckList(newProps)
     }
 
@@ -44,10 +44,10 @@ class PersonalInfo extends Component {
             })
 
         safetycheck.map((data) => {
-            if(data.service_serviceid ==1){
+            if(data.service_idservice ==1){
                 console.log(data)
                 this.state.info1.push(data)
-            }else if(data.service_serviceid ==1){
+            }else if(data.service_idservice ==1){
                 this.state.info2.push(data)
             }else{
                 this.state.info3.push(data)

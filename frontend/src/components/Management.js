@@ -51,7 +51,7 @@ class Management extends Component {
             this.state.seniorid.push(sc.idsenior)})
             
             for (let i = 0; i < this.state.seniorlist.length; i++) {
-                listItems.push({ id: i, content: this.state.seniorlist[i],  idsenior: this.state.seniorid[i]})
+                listItems.push({ id: i, content: this.state.seniorlist[i], idsenior: this.state.seniorid[i]})
               }
             console.log(this.state.seniorlist)
         this.setState({ isLoading: false })
@@ -74,7 +74,7 @@ class Management extends Component {
                                 <div>
                                     <h5 className="mt-0 mb-3">
                                         <i className="fa fa-user mr-xs opacity-70" />{' '}
-                                             관리 명단
+                                             관리 명단 
                                     </h5>
                                 </div>}>
                             <ScrollableList listItems={listItems}
